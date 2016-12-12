@@ -15,25 +15,27 @@ class App extends React.Component {
   }
 
   proChange(e) {
-    this.state.pros[e.currentTarget.id] = e.currentTarget.value;
-    if(this.state.pros[e.currentTarget.id] === '') {
-      this.state.pros.splice(e.currentTarget.id, 1);
+    let newPros = this.state.pros;
+    newPros[e.currentTarget.id] = e.currentTarget.value;
+    if(newPros[e.currentTarget.id] === '') {
+      newPros.splice(e.currentTarget.id, 1);
     }
-    else if(e.currentTarget.id == this.state.pros.length - 1) {
-      this.state.pros.push('');
+    else if(e.currentTarget.id == newPros.length - 1) {
+      newPros.push('');
     }
-    this.forceUpdate();
+    this.setState({pros: newPros});
     }
 
   conChange(e) {
-    this.state.cons[e.currentTarget.id] = e.currentTarget.value;
-    if(this.state.cons[e.currentTarget.id] === '') {
-      this.state.cons.splice(e.currentTarget.id, 1);
+    let newCons = this.state.cons;
+    newCons[e.currentTarget.id] = e.currentTarget.value;
+    if(newCons[e.currentTarget.id] === '') {
+      newCons.splice(e.currentTarget.id, 1);
     }
-    else if(e.currentTarget.id == this.state.cons.length - 1) {
-      this.state.cons.push('');
+    else if(e.currentTarget.id == newCons.length - 1) {
+      newCons.push('');
     }
-    this.forceUpdate();
+    this.setState({cons: newCons});
   }
 
   render(){
